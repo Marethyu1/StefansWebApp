@@ -1,7 +1,8 @@
 $(function () {
 
     //alert("hello World");
-
-    $('#navbar').load('nav.html');
+    $(document).ready(function(){
+        $('#navbar').load('nav.html');
+    });
 
 });
