@@ -5,13 +5,15 @@ function startTime() {
     var s = today.getSeconds();
     m = checkTime(m);
     s = checkTime(s);
-    document.getElementById('txt').innerHTML =
-        h + ":" + m + ":" + s;
+    document.getElementById("myClock").innerHTML = h + ":" + m + ":" + s;
+    document.body.style.background = "#00FFFF";
+    
     var t = setTimeout(startTime, 500);
 }
 function checkTime(i) {
     if (i < 10) {
         i = "0" + i;
+       
     }
     ; // add zero in front of numbers < 10
     return i;
