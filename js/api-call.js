@@ -8,7 +8,7 @@ window.onload = function () {
     // Make API call using custom sentence
     var xhr = new XMLHttpRequest();
 
-    xhr.open("Get", "http://api.timezonedb.com/v2/list-time-zone?key=5OV2VNUX028H&format=xml");
+    xhr.open("Get", "http://api.timezonedb.com/v2/list-time-zone?key=5OV2VNUX028H&format=json", false);
     // xhr.setRequestHeader
     xhr.send();
 
@@ -19,7 +19,10 @@ window.onload = function () {
     // // Save response body (response minus response header)
      var result = xhr.responseText;
     // // Modify text of HTML paragraph to display text returned by the API
-     document.getElementById("test").innerHTML = result;
+     
+    var obj = JSON.parse(result);
 
-     alert("sup");
+    //document.getElementById("test").innerHTML = obj;
+
+     //alert("sup");
 };
