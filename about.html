@@ -91,8 +91,9 @@ automatically in just a few seconds.
 
     <!-- Page Content -->
     <div class="container">
+        <p> select A country</p>
         <div id="test">
-            <form>
+            <form id="myForm">
             <select name="country">
                 <option value="Andorra">Andorra</option>
                 <option value="United Arab Emirates">United Arab Emirates</option>
@@ -346,11 +347,12 @@ automatically in just a few seconds.
                 <option value="South Africa">South Africa</option>
                 <option value="Zambia">Zambia</option>
                 <option value="Zimbabwe">Zimbabwe</option>
-            <input type="submit"> 
+           
             </select>
 
 
-            </form>            
+            </form>   
+            <button id="myButton" onclick="buttonClick()">Click me</button>         
         </div>
        
 

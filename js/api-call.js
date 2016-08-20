@@ -26,3 +26,18 @@ window.onload = function () {
 
      //alert("sup");
 };
+
+
+
+function buttonClick(){
+
+   // alert("hello world");
+
+    var e = document.getElementById("myForm");
+    var value = e.options[e.selectedIndex].value;
+    var text = e.options[e.selectedIndex].text;
+
+    alert(e);
+
+
+}
