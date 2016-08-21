@@ -9,9 +9,9 @@ function startTime() {
     //document.body.style.background = "#00FFFF";
    // document.body.style.backgroundColor = "red";
     
-    
-    var t = setTimeout(startTime, 500);
+   var t = setTimeout(startTime, 500); 
 }
+   
 function checkTime(i) {
     
     if (i < 10) {
