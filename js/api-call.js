@@ -40,6 +40,8 @@ function vanuatuClick(){
 
 function buttonClick(inputString){
     
+    var element = document.getElementById("buttons");
+    element.parentNode.removeChild(element);
     var myRequest = new XMLHttpRequest();
 
    
