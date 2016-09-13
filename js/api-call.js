@@ -16,8 +16,14 @@ window.onload = function () {
 };
 
 var CURRENT_DATE = new Date();
+var DEF_DATE = new Date();
+
+function defaultStart(){
+   // buttonClick("Pacific/Auckland");
+   
 
 
+}
 
 
 //var date = new date();
@@ -34,14 +40,21 @@ function africaClick(){
 }
 
 function vanuatuClick(){
-    buttonClick("Pacific/Efate");
+    buttonClick("Pacific/Efate"); 
 
 }
 
 function buttonClick(inputString){
     
-    var element = document.getElementById("buttons");
-    element.parentNode.removeChild(element);
+   if (inputString != "Pacific/Auckland"){
+        var element = document.getElementById("buttons");
+        element.parentNode.removeChild(element);
+
+   }
+   else{
+       document.getElementById("myClock").innerHTML = "";
+   }
+   
     var myRequest = new XMLHttpRequest();
 
    
@@ -64,8 +77,8 @@ function buttonClick(inputString){
    // alert(newDate.getMinutes());
 
     var hour = CURRENT_DATE.getHours();
-	var minute = CURRENT_DATE.getMinutes();
-	var second = CURRENT_DATE.getSeconds();
+	//var minute = CURRENT_DATE.getMinutes();
+	//var second = CURRENT_DATE.getSeconds();
 
 
 	// Ensure that every value has two digits
@@ -80,7 +93,22 @@ function getTime(){
 
 }
 
+function startTime3() {
+    
+   
+    var h = DEF_DATE.getHours();
+    var m = DEF_DATE.getMinutes();
+    var s = DEF_DATE.getSeconds();
 
+    h = checkTime(h);
+    m = checkTime(m);
+    s = checkTime(s);
+    document.getElementById("defaultStartingTag").innerHTML = h + ":" + m + ":" + s;
+    //document.body.style.background = "#00FFFF";
+   // document.body.style.backgroundColor = "red";
+    
+   var t = setTimeout(startTime3, 1000); 
+}
 
 function startTime2() {
 
@@ -91,12 +119,13 @@ function startTime2() {
     h = checkTime(h);
     m = checkTime(m);
     s = checkTime(s);
-    document.getElementById("myClock").innerHTML = h + ":" + m + ":" + s;
+    document.getElementById("myClock2").innerHTML = h + ":" + m + ":" + s;
     //document.body.style.background = "#00FFFF";
    // document.body.style.backgroundColor = "red";
     
    var t = setTimeout(startTime2, 1000); 
 }
+
 
 function checkTime(i) {
     
@@ -153,6 +182,5 @@ function changeColor2() {
 	setTimeout(changeColor2, x * 1000);
 
 }
-
 
 
