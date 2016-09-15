@@ -1,42 +1,46 @@
 var GLOBAL_OFFSET;
-function defaultStart() {
+
+
+function defaultStart(): void {
     // buttonClick("Pacific/Auckland");
 }
 //var date = new date();
-function londonClick() {
+function londonClick(): void {
     buttonClick("Europe/London");
 }
-function newZealandClick() {
+function newZealandClick(): void {
     buttonClick("Pacific/Auckland");
 }
-function sydneyClick() {
+function sydneyClick(): void {
     buttonClick("Australia/Sydney");
 }
-function africaClick() {
+function africaClick(): void {
     buttonClick("Africa/Johannesburg");
 }
-function vanuatuClick() {
+function vanuatuClick(): void {
     buttonClick("Pacific/Efate");
 }
-function buttonClick(inputString) {
+function buttonClick(inputString): void {
     var country;
-    if (inputString == "Europe/London") {
-        country = "London";
+    if (inputString == "Europe/London"){
+         country = "London";
     }
-    if (inputString == "Australia/Sydney") {
-        country = "Sydney";
+    if (inputString == "Australia/Sydney"){
+         country = "Sydney";
     }
-    if (inputString == "Africa/Johannesburg") {
-        country = "Johannesburg";
+    if (inputString == "Africa/Johannesburg"){
+         country = "Johannesburg";
     }
-    if (inputString == "Pacific/Efate") {
-        country = "Vanuatu";
+    if (inputString == "Pacific/Efate"){
+         country = "Vanuatu";
     }
-    if (inputString == "Pacific/Auckland") {
-        country = "New Zealand";
+    if (inputString == "Pacific/Auckland"){
+         country = "New Zealand";
     }
+
     document.getElementById("heading").innerHTML = "The time in " + country + " is: ";
     document.getElementById("heading").style.color = "white";
+    
     var myRequest = new XMLHttpRequest();
     var d = new Date();
     var request = "http://api.timezonedb.com/v2/get-time-zone?key=5OV2VNUX028H&format=json&by=zone&zone=" + inputString;
@@ -45,15 +49,17 @@ function buttonClick(inputString) {
     var requestResult = myRequest.responseText;
     var myObject = JSON.parse(requestResult);
     var myOffset = parseInt(myObject.gmtOffset, 10);
+
     GLOBAL_OFFSET = myOffset;
     startTime();
 }
-function startTime() {
+
+function startTime(): void {
     var today = new Date();
     today.setSeconds(today.getSeconds() + -43200 + GLOBAL_OFFSET);
-    var h = today.getHours();
-    var m = today.getMinutes();
-    var s = today.getSeconds();
+    var h: any = today.getHours();
+    var m: any = today.getMinutes();
+    var s: any = today.getSeconds();
     h = checkTime(h);
     m = checkTime(m);
     s = checkTime(s);
@@ -69,6 +75,9 @@ function checkTime(i) {
     ; // add zero in front of numbers < 10
     return i;
 }
-document.addEventListener("DOMContentLoaded", function () {
+
+
+document.addEventListener("DOMContentLoaded", function() {
     newZealandClick();
+    
 });
