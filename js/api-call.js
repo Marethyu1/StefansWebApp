@@ -35,14 +35,14 @@ function buttonClick(inputString) {
     if (inputString == "Pacific/Auckland") {
         country = "New Zealand";
     }
-    document.getElementById("heading").innerHTML = "The time in " + country + " is: ";
+    document.getElementById("heading").innerHTML = "The time in " + country + " is: "; //changes txt based on country
     document.getElementById("heading").style.color = "white";
     var myRequest = new XMLHttpRequest();
     var d = new Date();
-    var request = "http://api.timezonedb.com/v2/get-time-zone?key=5OV2VNUX028H&format=json&by=zone&zone=" + inputString;
+    var request = "http://api.timezonedb.com/v2/get-time-zone?key=5OV2VNUX028H&format=json&by=zone&zone=" + inputString; 
     myRequest.open("Get", request, false);
-    myRequest.send();
-    var requestResult = myRequest.responseText;
+    myRequest.send(); //api request
+    var requestResult = myRequest.responseText; 
     var myObject = JSON.parse(requestResult);
     var myOffset = parseInt(myObject.gmtOffset, 10);
     GLOBAL_OFFSET = myOffset;
@@ -50,15 +50,15 @@ function buttonClick(inputString) {
 }
 function startTime() {
     var today = new Date();
-    today.setSeconds(today.getSeconds() + -43200 + GLOBAL_OFFSET);
+    today.setSeconds(today.getSeconds() + -43200 + GLOBAL_OFFSET); 
     var h = today.getHours();
     var m = today.getMinutes();
     var s = today.getSeconds();
     h = checkTime(h);
     m = checkTime(m);
     s = checkTime(s);
-    document.getElementById("myClock").innerHTML = h + ":" + m + ":" + s;
-    var color = "#" + h + m + s;
+    document.getElementById("myClock").innerHTML = h + ":" + m + ":" + s; //updates time
+    var color = "#" + h + m + s; //updates background colour
     document.body.style.backgroundColor = color;
     var t = setTimeout(startTime, 1000);
 }
@@ -70,5 +70,5 @@ function checkTime(i) {
     return i;
 }
 document.addEventListener("DOMContentLoaded", function () {
-    newZealandClick();
+    newZealandClick(); //default loading of nz time
 });
